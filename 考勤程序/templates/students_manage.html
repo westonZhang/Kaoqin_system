@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="../static/jquery-3.6.0.js"></script>
+    {#    <link rel="stylesheet" href="./students_manage.css">#}
+    <style>
+        {#.clearfix {#}
+        {#    content:"";#}
+        {#    display: block;#}
+        {#    clear: both;#}
+        {#    visibility: hidden;#}
+        {# }#}
+        .student-options-btn{
+            padding:20px 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const BtnDel = document.getElementById("batch_del_btn");
+            const Ichecks = document.getElementsByClassName("check");
+            {#            console.log(BtnDel);#}
+{#            console.log(Ichecks);#}
+            BtnDel.onclick = function (e) {
+                e.preventDefault();
+                const check_list = [];
+                let j = 0;
+                for(let i = 0; i < Ichecks.length; i++){
+                    if(Ichecks[i].checked){
+                        check_list[j++] = parseInt(Ichecks[i].id);
+                    }
+                }
+
+{#                console.log(check_list);#}
+{#                发一个连接给url#}
+                if(check_list.length === 0){
+                    alert("没有选中要删除的内容")
+                }else{
+{#                    使用ajax#}
+                    $.ajax({
+                        url:"/delete",
+                        type:"POST",
+                        data:JSON.stringify(check_list),
+                        contentType:"application/json",
+                        success: function () {
+                            location.reload();
+                            console.log("success");
+                        },
+                        error: function () {
+                            console.log("error");
+                        }
+                    })
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <h1>学生管理</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-8"></div>
+        <div class="col-sm-4">
+            <div class="btn-group student-options-btn float-right" role="group" >
+                <a class="btn btn-success" href="./students_manage">刷新</a>
+                <a class="btn btn-primary" href="./student_add">添加</a>
+                <a class="btn btn-danger" href="#" id="batch_del_btn">删除</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            {#        头部标题#}
+            <thead>
+            <tr>
+                <th>选择</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>组别</th>
+                <th>手机号</th>
+                <th scope="col" class="text-center" >
+                    操作
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if students %}
+                {% for student in students %}
+                    <tr>
+                        <td>
+                            <label for="{{ student.id }}"></label><input type="checkbox" name="check" id="{{ student.id }}" class="check">
+                        </td>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.age }}</td>
+                        <td>{{ student.gender }}</td>
+                        <td>{{ student.group }}</td>
+                        <td>{{ student.score }}</td>
+                        <td class="text-center" >
+                            <a  class="btn btn-primary" href="/edit?id={{ student.id }}">修改</a>
+                            <a  class="btn btn-danger" href="/delete?id={{ student.id }}">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            {% else %}
+                <tr>
+                <td colspan="7">当前没有任何内容</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!-- /*
+* Author: 张文志
+*/ -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="../static/favicon.png">
+    <meta name="description" content="联想未来班考勤程序"/>
+    <meta name="keywords" content="westonZhang"/>
+    <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600, 700,900|Oswald:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="../static/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/css/jquery-ui.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../static/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../static/css/aos.css">
+    <link rel="stylesheet" href="../static/css/fancybox.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script type="text/javascript" src="../static/js/kaoqin.js"></script>
+    {#    <link rel="stylesheet" type="text/css" href="../static/css/考勤页面.css">#}
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <title>联想未来班 - 考勤程序</title>
+    <style>
+        textarea {
+            min-width: 300px;
+            min-height: 290px;
+        }
+    </style>
+    <script>
+        function submitClick(s) {
+            alert(s)
+        }
+    </script>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
+
+<div class="site-wrap">
+    {# 手机页面 #}
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    {# 主页菜单 #}
+    <header class="header-bar d-flex d-lg-block align-items-center site-navbar-target" data-aos="fade-right">
+        <div class="site-logo">
+            <a href="#">功能目录</a>
+        </div>
+
+        <div class="d-inline-block d-lg-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;">
+            <a href="#" class="site-menu-toggle js-menu-toggle ">
+                <span class="icon-menu h3"></span>
+            </a>
+        </div>
+
+        <div class="main-menu">
+            <ul class="js-clone-nav">
+                <li><a href="#section-home" class="nav-link">主页</a></li>
+                <li><a href="#section-attendance" class="nav-link">开始考勤</a></li>
+                {#                <li><a href="#section-random_choice" class="nav-link">随机点名</a></li>#}
+                <li><a href="#section-description" class="nav-link">使用说明</a></li>
+                <li><a href="#section-photos" class="nav-link">班级风采</a></li>
+                <li><a href="#section-settings" class="nav-link">功能配置</a></li>
+            </ul>
+            <ul class="social js-clone-nav">
+                <li><a href="#"><span class="icon-instagram"></span></a></li>
+                <li><a href="#"><span class="icon-facebook"></span></a></li>
+                <li><a href="#"><span class="icon-twitter"></span></a></li>
+                <li><a href="#"><span class="icon-linkedin"></span></a></li>
+            </ul>
+        </div>
+    </header>
+
+    {# 主要内容 #}
+    <main class="main-content">
+
+        <section class="site-section-hero bg-image mb-5" style="background-image: url('../static/images/hero-min.jpg');"
+                 data-stellar-background-ratio="0.5" id="section-home">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-7 text-center">
+                    <h1 class=" heading text-uppercase text-white" data-aos="fade-up">考勤程序</h1>
+                    <p class="lead text-white mb-4" data-aos="fade-up" data-aos-delay="100">欢迎您使用本程序. <a
+                            href="https://untree.co/">考勤程序v2.0</a></p>
+                    <p data-aos="fade-up" data-aos-delay="100">
+                        <a href="#section-attendance" class="btn btn-primary btn-md smoothscroll">
+                            Have A Good Time
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container-fluid site-section">
+
+            {# 开始考勤 #}
+            <section class="row align-items-stretch" id="section-attendance">
+                {# 标题：开始考勤 #}
+                <div class="col-12 text-center">
+                    <h2 class="heading">开始考勤</h2>
+                </div>
+                <div class="col-12">
+                    <div class="row align-items-stretch">
+                        {# 考勤页面 #}
+                        <iframe src="/kaoqin/" id="kaoqin" width="90%" height="300" frameborder="0"
+                                scrolling="auto"></iframe>
+                        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+                        <script>
+                            <!-- iframe自适应高度 -->
+                            $("#kaoqin").load(function () {
+                                var mainheight = $(this).contents().find("body").height() + 30;
+                                $(this).height(mainheight);
+                            });
+                        </script>
+                    </div>
+                </div>
+            </section> <!-- #section-attendance -->
+
+            {#            <br/>#}
+            {#            <br/>#}
+            {#            <br/>#}
+            {#            <br/>#}
+            {#            <br/>#}
+            {#            <br/>#}
+
+            {# 随机点名 #}
+            {#            <section class="row align-items-stretch" id="section-random_choice">#}
+            {# 标题：开始考勤 #}
+            {#                <div class="col-12 text-center">#}
+            {#                    <h2 class="heading">随机点名</h2>#}
+            {#                </div>#}
+            {#                <div class="col-12">#}
+            {#                    <div class="row align-items-stretch">#}
+            {# 考勤页面 #}
+            {#                        <iframe src="/kaoqin/" name="kaoqin" width="900" height="1100" scrolling="no"></iframe>#}
+            {#                        <iframe src="/random_choice/" id="choice" width="90%" height="300" frameborder="0"#}
+            {#                                scrolling="auto"></iframe>#}
+            {#                        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>#}
+            {#                        <script>#}
+            {#                            <!-- iframe自适应高度 -->#}
+            {#                            $("#choice").load(function () {#}
+            {#                                var mainheight = $(this).contents().find("body").height() + 30;#}
+            {#                                $(this).height(mainheight);#}
+            {#                            });#}
+            {#                        </script>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#            </section> <!-- #section-attendance -->#}
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {# 说明文档 #}
+            <section class="row align-items-stretch" id="section-description">
+                {# 标题 #}
+                <div class="col-12 text-center">
+                    <h2 class="heading">使用说明</h2>
+                </div>
+
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            {#                            <div class="row">#}
+                            {% for s in  data['description'] %}
+                                <p>{{ s }}</p>
+                            {% endfor %}
+                            {#                            </div>#}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {# 班级风采 #}
+            <section class="row align-items-stretch photos" id="section-photos">
+                {# 标题：班级风采 #}
+                <div class="col-12 text-center">
+                    <h2 class="heading">班级风采</h2>
+                </div>
+
+                {# 介绍 #}
+                <div class="col-md-8">
+                    <img src="../static/images/cls_imgs/lenovo_15.jpg" alt="Image"
+                         class="img-fluid mb-4 w-50 rounded-circle">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="">Hi 我们是<span style="color: red">联想未来班</span></h2>
+                        <br>
+                        <p>我们是联想未来班项目组，是2022年4月成立。</p>
+                        <p>现在有16名成员，下面有介绍哦。</p>
+                        <p>我们班级成员各种兴趣爱好无所不精，画画、乐器、厨艺、编程、甚至还有up主！</p>
+                        <p>个个都是未来的大牛！让我们拭目以待吧！</p>
+                        <h3 class=" mt-5">Services</h3>
+
+                        <div class="d-block d-md-flex mt-5">
+                            <div class="mr-md-auto mr-2">
+                                <ul class="ul-check list-unstyled primary">
+                                    <li>打印服务</li>
+                                    <li>小程序开发</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {# 成员介绍 #}
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12">
+                                    <div class="owl-carousel slide-one-item home-slider">
+                                        {# 循环遍历获取照片和介绍 #}
+                                        {% for name, img in data['stu_img_dict'].items() %}
+                                            <div class="testimony text-center px-md-4">
+                                                <figure class="mx-auto d-inline-block">
+                                                    <img src="../static/images/student_imgs/{{ img }}"
+                                                         class="mx-auto img-fluid w-25 rounded-circle">
+                                                </figure>
+                                                {# 介绍 #}
+                                                <p class="text-black"><strong>{{ name }}</strong></p>
+                                                <blockquote>
+                                                    <p>&ldquo;{{ data['student_intro_dict'][name] }}&rdquo;</p>
+                                                </blockquote>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {# 图片 #}
+                <div class="col-12">
+                    <div class="row align-items-stretch">
+                        {% for img in data['cls_imgs'] %}
+                            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                                <a href="../static/images/cls_imgs/{{ img }}" class="d-block photo-item"
+                                   data-fancybox="gallery">
+                                    <img src="../static/images/cls_imgs/{{ img }}" alt="Image" class="img-fluid mb-0">
+                                    <div class="photo-text-more">
+                                        <span class="icon icon-eye"></span>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section> <!-- #section-photos -->
+
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {# 配置 #}
+            {#                        <section class="site-section" id="section-settings">#}
+            <section class="row align-items-stretch" id="section-settings">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div>
+                            <div class="col-12 text-center">
+                                <h2 class="heading">功能配置</h2>
+                            </div>
+                            <span style="color: red">下列配置都已默认配置好，若无必要可以不修改哦 ^_^</span>
+                            <form action="/settings/" method="post">
+                                <div>
+                                    {% for k, v in data['settings'].items() %}
+                                        <div class="row form-group mb-5">
+                                            <div class="col-md-12">
+                                                {% if "kq" in k %}
+                                                    <label class="" for="message">1. 所有考勤情形:</label>
+                                                {% elif "lesson" in k %}
+                                                    <label class="" for="message">2. 所有考勤课程:</label>
+                                                {% endif %}
+                                                <textarea name="{{ k }}" value="{{ v }}" id="message" cols="30"
+                                                          rows="7" class="form-control">{{ v }}</textarea>
+                                            </div>
+                                        </div>
+
+                                    {% endfor %}
+                                    <div align="center">
+                                        <input type="submit" value="提 交" class="btn btn-primary btn-md"
+                                               onclick="submitClick('配置数据保存成功！')">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {# 最下面的标签 #}
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center py-5">
+                    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        . Designed by <a href="#">联想未来班</a> <!-- License information:
+                                        https://untree.co/license/ -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div> <!-- .site-wrap -->
+
+<script src="../static/js/jquery-3.3.1.min.js"></script>
+<script src="../static/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../static/js/jquery.easing.1.3.js"></script>
+<script src="../static/js/jquery-ui.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/owl.carousel.min.js"></script>
+<script src="../static/js/jquery.stellar.min.js"></script>
+<script src="../static/js/jquery.countdown.min.js"></script>
+<script src="../static/js/jquery.magnific-popup.min.js"></script>
+<script src="../static/js/aos.js"></script>
+<script src="../static/js/lozad.min.js"></script>
+
+
+<script src="../static/js/jquery.fancybox.min.js"></script>
+
+<script src="../static/js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+</body>
+</html>

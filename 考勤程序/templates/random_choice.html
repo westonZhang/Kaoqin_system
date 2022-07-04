@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机点名</title>
+    <script type="text/javascript" src="../static/js/kaoqin.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/考勤页面.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css"/>
+    <script>
+        function submitClick(s) {
+            alert(s)
+        }
+    </script>
+</head>
+<body background="../static/images/kaoqin_backgroud.jpg">
+
+{#<div style="margin-left:20%;padding:1px 16px;height:1000px;">#}
+<div style="padding:1px 16px;height:1000px;" align="center">
+    <form action="/submit_kq/{{ data["course"] }}/" method="post">
+        {#  班级复选框  #}
+        <div id="class_choice">
+            请选择班级：
+            {% for cls in data["classes"] %}
+                <input type="checkbox" class="c_checkbox" id="{{ cls }}" value="{{ cls }}"
+                       onclick="checkboxOnclick(this, '{{ cls }}')" checked>
+                <label for="{{ cls }}">{{ cls }}</label>
+            {% endfor %}<br><br>
+        </div>
+
+        {# 考勤表 #}
+        <div style="display: block">
+            <table border="1" id="table">
+                {# 表头 #}
+                <thead>
+                <tr>
+                    <th style="width: 4cm">班级</th>
+                    <th style="width: 4cm">姓名</th>
+                    <th style="width: 4cm">考勤</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                <tr style="display: none">
+                    <td align="center">1班</td>
+                    <td align="center">张三</td>
+                    <td align="center">
+                        <label>
+                            <select>
+                                {% for y in data["kaoqin"].values() %}
+                                    <option value="{{ y }}">{{ y }}</option>
+                                {% endfor %}
+                            </select>
+                        </label>
+                    </td>
+                </tr>
+
+                {% for cls, students in data['cs_info'].items() %}
+                    {% for s in students %}
+                        <tr>
+                            <td align="center">{{ cls }}</td>
+                            <td align="center">{{ s }}</td>
+                            <td align="center">
+                                <label>
+                                    <select>
+                                        {% for y in data["kaoqin"].values() %}
+                                            <option value="{{ y }}">{{ y }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </label>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        <br>
+
+        <div align="center">
+            <button type="submit" onclick="submitClick('考勤数据保存成功！')" class="animate__animated animate__rotateIn">提 交
+            </button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
