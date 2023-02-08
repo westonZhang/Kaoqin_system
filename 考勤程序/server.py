@@ -1,4 +1,6 @@
-from flask import Flask, redirect, request, render_template, url_for
+import os.path
+
+from flask import Flask, redirect, request, render_template, url_for, send_from_directory
 import service
 
 app = Flask(__name__)
@@ -128,3 +130,18 @@ def random_choice():
         "lessons": service.get_lessons()
     }
     return render_template('random_choice.html', data=data)
+
+
+@app.route('/download_file/')
+def download_file():
+    """ 下载模版文件 """
+    # path = os.path.abspath('.') + '/1-学生名单表/学生名单.xlsx'
+    # return send_from_directory(path, filename="学生名单.xlsx", as_attachment=True)
+    # todo
+
+
+@app.route('/upload_file/')
+def upload_file():
+    """ 上传文件 """
+    pass
+    # todo

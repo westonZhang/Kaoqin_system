@@ -12,7 +12,9 @@
         }
     </script>
 </head>
+<!-- <body background="../static/images/kaoqin_backgroud.jpg"> -->
 <body background="../static/images/kaoqin_backgroud.jpg">
+
 {#<body>#}
 
 
@@ -26,7 +28,20 @@
 <style>
     li {
         list-style-type: none;
+        float: left;
+        background-color: rgba(86, 138, 202, 0.6);
+        width: 49.8%;
+        border-color: white;
+        border-left-style: solid;
+     
+
     }
+    td{
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 3px;
+    }
+
 </style>
 {# 选择科目 #}
 <div align="center">
@@ -63,7 +78,7 @@
 
         {# 考勤表 #}
         <div style="display: block">
-            <table border="1" id="table">
+            <table  id="table">
                 {# 表头 #}
                 <thead>
                 <tr>
